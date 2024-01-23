@@ -9,6 +9,7 @@ class Idea extends Model
 {
     use HasFactory;
     protected $with = ['user','comments.user'];
+    protected $withCount=["likes"];
     protected $guarded = [
         "id",
         "created_at",

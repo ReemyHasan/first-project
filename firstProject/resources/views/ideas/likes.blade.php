@@ -15,7 +15,7 @@
 
             </form>
         @endif
-        </span> {{ $idea->likes()->count() }}
+        </span> {{ $idea->likes_count }}
 
 
     @endauth
