@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,8 +13,10 @@ class DashboardController extends Controller
         if(request()->has("searchWord")){
         $idea = Idea::where("content",  "like","%".request()->get("searchWord")."%");
         }
+        // $topUsers = User::withCount("ideas")->orderBy("ideas_count","desc")->limit(2)->get();
         return view("welcome",[
             "ideas"=> $idea->paginate(3),
+            // "topUsers" =>$topUsers
         ]);
     }
 }
